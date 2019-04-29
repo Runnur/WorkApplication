@@ -1,0 +1,35 @@
+﻿@using WorkApplication.Models
+@using WorkApplication.HtmlHelpers
+@model GamesListViewModel
+
+@{
+    ViewBag.Title = "Список товаров";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    div.card {
+        width: 350px;
+        height: 250px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin: 10px;
+        text-align: center;
+        text-overflow: unset;
+        white-space: normal;
+        overflow: hidden;
+        padding-bottom: 120px;
+        overflow-wrap: break-word;
+        word-break: break-all;
+    }
+</style>
+
+<h2>Список товаров</h2>
+
+<div class="row">
+    @foreach (var item in @Model.Games)
+    {
+        @Html.Partial("_GameSummary", item)
+    }    
+</div>
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, category = Model.CurrentCategory }))
+</div>
