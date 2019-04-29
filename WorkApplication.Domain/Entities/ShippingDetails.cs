@@ -11,5 +11,7 @@ namespace WorkApplication.Domain.Entities
     {
         [Required(ErrorMessage = "Укажите ваше имя")]
         public string Name { get; set; }
+
+        public string Line1 { get; set; }
     }
 }
