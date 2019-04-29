@@ -47,6 +47,11 @@ namespace WorkApplication.Controllers
             return PartialView(cart);
         }
 
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        {
+            return View(new ShippingDetails());
+        }
+
         //public Cart GetCart()
         //{
         //    Cart cart = (Cart)Session["Cart"];
